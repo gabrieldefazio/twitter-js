@@ -16,7 +16,6 @@ function find (properties) {
     return _.cloneDeep(_.filter(data, properties));
 }
 
-module.exports = { add: add, list: list, find: find };
 
 const randArrayEl = function(arr) {
     return arr[Math.floor(Math.random() * arr.length)];
@@ -36,6 +35,8 @@ const getFakeTweet = function() {
 const getFakeID = function() {
     return Math.floor(Math.random()*10000000000)
 }
+
+module.exports = { add: add, list: list, find: find, id: getFakeID };
 
 for (let i = 0; i < 5; i++) {
     module.exports.add( getFakeName(), getFakeTweet(),getFakeID() );

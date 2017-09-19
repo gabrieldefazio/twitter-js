@@ -11,13 +11,13 @@ router.get('/', function (req, res) {
 router.get('/users/:name/', function(req, res) {
     var name = req.params.name;
     var list = tweetBank.find( {name: name} );
-    console.log(list)
     res.render( 'index', { tweets: list } );
 });
 
 router.get('/users/:name/tweets/:id', function(req, res) {
     var id = req.params.id;
-    var list = tweetBank.find( {id: id} );
+    console.log(id)
+    var list = tweetBank.find( {id: Number(id)} );
     console.log(list)
     res.render( 'index', { tweets: list } );
 });

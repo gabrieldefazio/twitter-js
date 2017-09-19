@@ -1,7 +1,7 @@
 const express = require( 'express' );
 const app = express();
 const nunjucks = require('nunjucks');
-const volleyball = require('volleyball');
+const morgan = require('morgan');
 const PORT = 3000;
 const routes = require('./routes');
 const bodyParser = require('body-parser');
@@ -11,9 +11,9 @@ app.engine('html', nunjucks.render); // when giving html files to res.render, te
 nunjucks.configure('views', {noCache: true}); // point nunjucks to the proper directory for templates
 
 app.listen(PORT);
-app.use(volleyball);
+app.use(morgan('dev'));
 app.use(bodyParser.urlencoded ({extended : true}));
-app.use('/', routes);
+app.use(routes);
 app.use(express.static('public'));
 
 

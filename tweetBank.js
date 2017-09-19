@@ -1,6 +1,6 @@
 const _ = require('lodash');
 
-let data = []
+let data = [];
 
 
 
@@ -40,4 +40,3 @@ const getFakeID = function() {
 for (let i = 0; i < 5; i++) {
     module.exports.add( getFakeName(), getFakeTweet(),getFakeID() );
 }
-

@@ -4,8 +4,8 @@ let data = [];
 
 
 
-function add (name, content, id) {
-    data.push({ name: name, content: content, id : id});
+function add (name, content) {
+    data.push({ name: name, content: content, id : getFakeID()});
 }
 
 function list () {

@@ -15,16 +15,15 @@
 
         <!-- display tweets here -->
         {% for tweet in tweets %}
-        <li><a href="/users/{{tweet.name}}">{{tweet.name}}</a> - {{tweet.content}}</li>
-        <li>{{tweet.content}}</li>
-        <li><a href="/users/{{tweet.name}}/tweets/{{tweet.id}}">{{tweet.id}}</a></li>
-        <li></li>
+        <li><a href="/users/{{tweet.name}}">{{tweet.name}}</a></li>
+        <li><a href="/tweets/{{tweet.id}}">{{tweet.content}}</a></li>
+        <p><br></p>
         {% endfor %}
 
         {% if showForm %}
         <form action="/tweets" method="POST">
             <label for="name_field">Name:</label>
-            <input name="{{name}}" value= "{{name}}" type="text" id="name_field" />
+            <input name="name" value= "{{name}}" type="text" id="name_field" />
 
             <label for="text_field">Text:</label>
             <input name="text" type="text" id="text_field" style="width: 350px;" />

@@ -8,21 +8,22 @@ router.get('/', (req, res)=>{
 });
 
 router.get('/users/:name/', (req, res)=>{
-    var name = req.params.name;
-    var list = tweetBank.find( {name: name} );
-    res.render( 'index', { tweets: list, showForm: true } );
+    let name = req.params.name;
+    let list = tweetBank.find( {name: name} );
+    res.render( 'index', { tweets: list, showForm: true, name: req.params.name } );
 });
 
-router.get('/users/:name/tweets/:id', (req, res)=>{
-    var id = req.params.id;
-    var list = tweetBank.find( {id: Number(id)} );
-    res.render( 'index', { tweets: list } );
+router.get('/tweets/:id', (req, res)=> {
+    let id = req.params.id
+    let thisTweet = tweetBank.find({id: +id});
+  res.render('index', {tweets: thisTweet})
 });
 
+// noinspection Annotator
 router.post('/tweets', (req, res)=>{
-    var name = req.body.name;
-    var text = req.body.text;
-    var id = tweetBank.id();
+    let name = req.body.name;
+    let text = req.body.text;
+    let id = tweetBank.id();
     tweetBank.add(name, text, id);
     res.redirect('/');
 });
